@@ -1,0 +1,21 @@
+# Build artifacts (compiled from src, not edited directly)
+themes/*/build/
+themes/*/dist/scripts/
+themes/*/dist/icons/
+themes/*/dist/images/*
+!themes/*/dist/images/*-gold.svg
+!themes/*/dist/images/logo*.png
+!themes/*/dist/images/logo*.svg
+
+# Node stuff
+node_modules/
+yarn.lock
+package-lock.json
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Server tarballs
+*.tar.gz
