@@ -32,7 +32,7 @@ deploy() {
     local src="$1"
     local dest="$2"
     echo -e "${GREEN}→${NC} Deploying: $(basename $src)"
-    rsync -az --delete -e "ssh -i $SSH_KEY -o StrictHostKeyChecking=no" \
+    rsync -az --delete --no-group -e "ssh -i $SSH_KEY -o StrictHostKeyChecking=no" \
         --exclude='build/' \
         --exclude='node_modules/' \
         --exclude='package-lock.json' \
