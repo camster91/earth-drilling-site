@@ -1,0 +1,74 @@
+name: Deploy to Earth Drilling
+
+on:
+  push:
+    branches: [master, main]
+    paths:
+      - 'plugins/**'
+      - 'themes/**'
+      - 'mu-plugins/**'
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup SSH
+        uses: webfactory/ssh-agent@v0.9.0
+        with:
+          ssh-private-key: ${{ secrets.DEPLOY_KEY }}
+          log-public-key: false
+
+      - name: Add server to known_hosts
+        run: |
+          mkdir -p ~/.ssh
+          ssh-keyscan -H 72.167.35.242 >> ~/.ssh/known_hosts
+
+      - name: Deploy plugins
+        run: |
+          rsync -az --delete \
+            -e "ssh -o StrictHostKeyChecking=yes" \
+            plugins/country-redirect/ \
+            cameron@72.167.35.242:/var/www/earthdrilling.com/public/wp-content/plugins/earthdrilling-country-redirect/
+          echo "✓ Root plugin deployed"
+
+      - name: Deploy CA theme
+        run: |
+          rsync -az --delete \
+            -e "ssh -o StrictHostKeyChecking=yes" \
+            --exclude='build/' --exclude='node_modules/' --exclude='package-lock.json' --exclude='yarn.lock' \
+            themes/earthdrilling/ \
+            cameron@72.167.35.242:/var/www/earthdrilling.com/ca/public/wp-content/themes/earthdrilling/
+          echo "✓ CA theme deployed"
+
+      - name: Deploy US theme
+        run: |
+          rsync -az --delete \
+            -e "ssh -o StrictHostKeyChecking=yes" \
+            --exclude='build/' --exclude='node_modules/' --exclude='package-lock.json' --exclude='yarn.lock' \
+            themes/harrisexploration/ \
+            cameron@72.167.35.242:/var/www/earthdrilling.com/us/public/wp-content/themes/harrisexploration/
+          echo "✓ US theme deployed"
+
+      - name: Deploy mu-plugins (CA)
+        run: |
+          rsync -az \
+            -e "ssh -o StrictHostKeyChecking=yes" \
+            mu-plugins/ca/ \
+            cameron@72.167.35.242:/var/www/earthdrilling.com/ca/public/wp-content/mu-plugins/
+          echo "✓ CA mu-plugins deployed"
+
+      - name: Deploy mu-plugins (US)
+        run: |
+          rsync -az \
+            -e "ssh -o StrictHostKeyChecking=yes" \
+            mu-plugins/us/ \
+            cameron@72.167.35.242:/var/www/earthdrilling.com/us/public/wp-content/mu-plugins/
+          echo "✓ US mu-plugins deployed"
+
+      - name: Clear caches
+        run: |
+          ssh cameron@72.167.35.242 "sudo wp cache flush --allow-root 2>/dev/null || true; echo 'Caches cleared'"
+          echo "✓ All done"
