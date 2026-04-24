@@ -24,12 +24,10 @@ class Earth_Drilling_Country_Toggle {
 	private function __construct() {
 		$this->current_site = $this->detect_current_site();
 
-		$home   = home_url( '/' );
-		$parsed = wp_parse_url( $home );
-		$base   = $parsed['scheme'] . '://' . $parsed['host'];
+		// Use absolute HTTPS URL to avoid broken paths on subsites
 		$this->urls = [
-			'ca' => $base . '/ca/',
-			'us' => $base . '/us/',
+			'ca' => 'https://earthdrilling.com/ca/',
+			'us' => 'https://earthdrilling.com/us/',
 		];
 
 		add_action( 'wp_enqueue_scripts', [ $this, 'enqueue_assets' ] );
@@ -82,6 +80,7 @@ class Earth_Drilling_Country_Toggle {
 .header-utility__item.edct-toggle-item{display:flex!important;flex-direction:row!important;align-items:center!important;justify-content:center!important;padding:0 8px!important;border-left:1px solid rgba(255,255,255,.15)!important}
 .mobile-utility__item.edct-toggle-item{display:flex!important;align-items:center!important;justify-content:center!important;border-top:1px solid rgba(255,255,255,.15);margin:8px 0 0;padding:10px 0!important}
 @media(max-width:768px){.edct-switch{padding:4px}.edct-switch__side{padding:6px 16px;gap:6px}.edct-flag-svg{width:20px;height:14px}.edct-switch__label{font-size:12px}.edct-switch__slider{top:4px;left:4px;width:calc(50% - 4px);height:calc(100% - 8px)}}
+@media(max-width:768px){.masthead__logo a{width:200px!important}.masthead__logo .u-svg-container--logo{padding-bottom:23%!important}}
 .u-svg-container--logo img,.u-svg-container--footer-logo img{object-fit:contain}
 .masthead__logo a{width:300px!important;display:block}
 .masthead__logo .u-svg-container--logo{position:relative!important;width:100%!important;height:auto!important;padding-bottom:23%!important}
@@ -115,7 +114,9 @@ class Earth_Drilling_Country_Toggle {
 .recent-updates .article__content,.listing .article__content{padding:0 1.25rem .75rem!important;font-size:.875rem!important;color:#4f4c4c!important}
 .recent-updates .read-more,.listing .article .read-more{padding:0 1.25rem 1.25rem!important;display:inline-block!important}
 .recent-updates .cell--flex{display:flex!important;flex-direction:column!important}
-@media(max-width:768px){.recent-updates .article,.listing .listing__item .article{border-radius:4px!important;margin-bottom:1.5rem!important}.recent-updates .article .heading,.listing .article .heading{padding:.75rem 1rem 0!important}.recent-updates .article__content,.listing .article__content{padding:0 1rem .5rem!important}.recent-updates .read-more,.listing .article .read-more{padding:0 1rem 1rem!important}}
+/* Hide green registered logo on US site */
+.logo-list__item img[src*='registered_logo_green']{display:none!important}
+@media(max-width:768px){.recent-updates .article,.listing .listing__item .article{border-radius:4px!important;margin-bottom:1.5rem!important}.recent-updates .article .heading,.listing .article .heading{padding:.75rem 1rem 0!important}.recent-updates .article__content,.listing ..article__content{padding:0 1rem .5rem!important}.recent-updates .read-more,.listing .article .read-more{padding:0 1rem 1rem!important}}
 CSS;
 	}
 
