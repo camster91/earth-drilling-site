@@ -68,7 +68,32 @@ jobs:
             cameron@72.167.35.242:/var/www/earthdrilling.com/us/public/wp-content/mu-plugins/
           echo "✓ US mu-plugins deployed"
 
-      - name: Clear caches
+      - name: Clear caches (CA)
         run: |
-          ssh cameron@72.167.35.242 "sudo wp cache flush --allow-root 2>/dev/null || true; echo 'Caches cleared'"
+          ssh cameron@72.167.35.242 'cd /var/www/earthdrilling.com/ca/public && wp cache flush --allow-root && wp litespeed-purge all --allow-root 2>/dev/null; echo "CA cache cleared"'
+
+      - name: Clear caches (US)
+        run: |
+          ssh cameron@72.167.35.242 'cd /var/www/earthdrilling.com/us/public && wp cache flush --allow-root && wp litespeed-purge all --allow-root 2>/dev/null; echo "US cache cleared"'
+
+      - name: Clear caches (Root)
+        run: |
+          ssh cameron@72.167.35.242 'cd /var/www/earthdrilling.com/public && wp cache flush --allow-root && wp litespeed-purge all --allow-root 2>/dev/null; echo "Root cache cleared"'
+
+      - name: Reset OPcache
+        run: |
+          ssh cameron@72.167.35.242 'for site in ca/public us/public public; do cat > /var/www/earthdrilling.com/$site/opcache-rst.php << "PHPEOF"
+<?php opcache_reset(); echo "ok";
+PHPEOF
+            curl -sk "https://earthdrilling.com/${site%public}opcache-rst.php" 2>/dev/null || true
+            rm -f /var/www/earthdrilling.com/$site/opcache-rst.php
+          done'
+          echo "✓ OPcache reset on all 3 sites"
+
+      - name: Verify deployment
+        run: |
+          for url in https://earthdrilling.com/ https://earthdrilling.com/ca/ https://earthdrilling.com/us/; do
+            code=$(curl -sko /dev/null -w "%{http_code}" "$url")
+            echo "$url → HTTP $code"
+          done
           echo "✓ All done"
