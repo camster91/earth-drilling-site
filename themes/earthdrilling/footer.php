@@ -79,17 +79,6 @@ $addresses = Hny_Site_Settings::get_addresses();
 				<div class="colophon">
 					<div class="colophon__legalese">
 						<p>&copy; <?php echo gmdate( 'Y' ); ?> <?php bloginfo( 'name' ); ?></p>
-						<p>
-							<a href="https://www.honeycombcreative.com" target="_blank"
-									rel="noopener noreferrer"
-									title="Vancouver Website Design by Honeycomb Creative">
-								<?php
-								_e(
-									'Website Design by Honeycomb Creative',
-									'hny'
-								);
-								?>
-							</a>
 						</p>
 					</div>
 					<?php hny_get_menu( 'legal-nav' ); ?>
