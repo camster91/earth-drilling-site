@@ -81,6 +81,7 @@ class Earth_Drilling_Country_Toggle {
 .mobile-utility__item.edct-toggle-item{display:flex!important;align-items:center!important;justify-content:center!important;border-top:1px solid rgba(255,255,255,.15);margin:8px 0 0;padding:10px 0!important}
 @media(max-width:768px){.edct-switch{padding:4px}.edct-switch__side{padding:6px 16px;gap:6px}.edct-flag-svg{width:20px;height:14px}.edct-switch__label{font-size:12px}.edct-switch__slider{top:4px;left:4px;width:calc(50% - 4px);height:calc(100% - 8px)}}
 @media(max-width:768px){.masthead__logo a{width:200px!important}.masthead__logo .u-svg-container--logo{padding-bottom:23%!important}}
+.home .page-content .l-container{padding:0!important;margin:0!important}.home .page-content .wysiwyg:empty{display:none!important}
 .u-svg-container--logo img,.u-svg-container--footer-logo img{object-fit:contain}
 .masthead__logo a{width:300px!important;display:block}
 .masthead__logo .u-svg-container--logo{position:relative!important;width:100%!important;height:auto!important;padding-bottom:23%!important}
