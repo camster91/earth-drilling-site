@@ -1,0 +1,15 @@
+.photo {
+  position: relative;
+
+  figure {
+    position: relative;
+    border: 5px solid $white;
+    background-color: $white;
+    box-shadow: $box-shadow-large;
+
+    [data-slick-slider] & {
+      border: 0;
+      box-shadow: none;
+    }
+  }
+}

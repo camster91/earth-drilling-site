@@ -1,0 +1,160 @@
+.site-footer {
+  z-index: 100;
+  position: relative;
+
+  &__contact {
+    position: relative;
+    overflow: hidden;
+
+    &:after {
+      z-index: -1;
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      height: 50%;
+      background: $primary-light;
+      content: "";
+
+      @include breakpoint(large) {
+        content: none;
+      }
+    }
+
+    @include breakpoint(large) {
+      height: 500px;
+    }
+
+    .heading--drill {
+      padding-top: 0rem;
+      margin-top: 0rem;
+      margin-bottom: 0;
+      margin-left: 27px;
+
+      @include breakpoint(large) {
+        padding-top: 2.75rem;
+        margin-top: -2.75rem;
+      }
+    }
+    @include breakpoint(tablet) {
+      padding-top: 2rem;
+      margin-top: -1rem;
+    }
+  }
+
+  address {
+    line-height: 1.6;
+
+    @include breakpoint(large) {
+      white-space: nowrap;
+    }
+
+    .inline-icon {
+      .hny-svg {
+        width: 1.5em;
+        height: 1.5em;
+        margin-left: -0.35em;
+      }
+    }
+  }
+
+  &__background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("../images/footer-bg.svg");
+    background-position: center top;
+    background-size: $global-width * 1.625 auto;
+    background-repeat: repeat-x;
+  }
+
+  &__columns {
+    color: $white;
+    font-size: rem-calc(12);
+
+    .heading {
+      font-size: rem-calc(20);
+    }
+
+    .cell {
+      .cell {
+        margin-bottom: 1.5rem;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+
+        @include breakpoint(xlarge) {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+
+  &__logo {
+    display: block;
+    width:12em;
+    @include breakpoint(tablet) {
+      width: 100%;
+      max-width: 20em;
+    }
+  }
+
+  &__content {
+    z-index: 10;
+    position: relative;
+    padding-top: 16rem;
+    padding-bottom: 3rem;
+    color: $secondary-color;
+
+    @include breakpoint(medium) {
+      padding-top: rem-calc(250);
+    }
+
+    @include breakpoint(tablet) {
+      padding-top: rem-calc(275);
+    }
+
+    @include breakpoint(large) {
+      padding-top: rem-calc(200);
+    }
+
+    @include breakpoint(xlarge) {
+      padding-top: rem-calc(250);
+    }
+
+    @include breakpoint(xxlarge) {
+      padding-top: rem-calc(198);
+      font-size: rem-calc(12);
+    }
+
+    h5 {
+      &.heading {
+        margin-bottom: 0.5rem;
+        color: currentColor;
+      }
+    }
+
+    a {
+      color: $secondary-color;
+
+      &[href^="mailto:"] {
+        color: $black;
+      }
+    }
+  }
+
+  &__heading {
+    margin-bottom: 0.5rem;
+  }
+
+  &__colophon {
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+    background: $secondary-color;
+  }
+  .associations .logo-list__item img {
+    max-height: 6em;
+  }
+}

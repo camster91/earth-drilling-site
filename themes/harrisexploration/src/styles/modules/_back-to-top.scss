@@ -1,0 +1,54 @@
+.back-to-top {
+  display: inline-block;
+  position: fixed;
+  right: 0.5rem;
+  bottom: 0.5rem;
+  width: 40px;
+  height: 40px;
+  transform: translateY(20px);
+  transition: none;
+  border: 2px solid $white;
+  background: $primary-color;
+  color: $white;
+  line-height: 45px;
+  text-align: center;
+  white-space: nowrap;
+  box-shadow: $box-shadow-hover;
+  opacity: 0;
+  overflow: hidden;
+  visibility: hidden;
+  z-index: 9997;
+
+  @include breakpoint(large) {
+    right: 1rem;
+    bottom: 1rem;
+    width: 50px;
+    height: 50px;
+  }
+
+  &:hover,
+  &:focus {
+    border-color: $light-gray;
+    background: $button-background-hover;
+
+    .hny-svg {
+      fill: $white;
+    }
+  }
+
+  .hny-svg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 26px;
+    height: 26px;
+    margin: -14px 0 0 -13px;
+    fill: $white;
+  }
+
+  &.is-visible {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+  }
+}

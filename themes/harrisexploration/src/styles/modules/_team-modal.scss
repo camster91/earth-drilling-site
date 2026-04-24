@@ -1,0 +1,141 @@
+.team-modal {
+  padding: 0;
+
+  &[aria-hidden='false'] {
+    display: flex !important;
+    flex-direction: column;
+  }
+}
+
+.team-modal-slider {
+  width: 100%;
+  max-width: 550px;
+  margin: 0 auto;
+
+  @include breakpoint(900) {
+    max-width: $global-width;
+  }
+
+  .slick-arrow {
+    position: static;
+  }
+}
+
+.team-slide {
+  height: auto;
+  justify-content: flex-start !important;
+
+  &__inner {
+    display: inline-block;
+    position: relative;
+    overflow: visible;
+  }
+
+  &__content {
+    padding: 0 3rem 3rem;
+  }
+
+  &__nav-wrapper {
+    border-top: 1px solid $light-gray;
+  }
+
+  &__nav {
+    display: flex;
+    position: relative;
+    padding: 1.5rem;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    @include breakpoint(900) {
+      padding: 50px 1.5rem;
+    }
+
+    .slick-arrow {
+      display: inline-block !important;
+      position: relative;
+      width: auto;
+      height: auto;
+      margin: 0;
+      background: none;
+      color: $primary-color;
+      font-size: rem-calc(18);
+      font-weight: $global-weight-normal;
+      line-height: 1.3;
+      text-indent: 0;
+      box-shadow: none;
+
+      &.slick-prev {
+        right: auto;
+        left: 0;
+        padding-left: 2rem;
+        text-align: left;
+
+        .hny-svg {
+          right: auto;
+          left: 0;
+        }
+      }
+
+      &.slick-next {
+        right: 0;
+        left: auto;
+        padding-right: 2rem;
+        text-align: right;
+
+        .hny-svg {
+          right: 0;
+          left: auto;
+        }
+      }
+
+      .hny-svg {
+        position: absolute;
+        top: 0;
+        width: 16px;
+        height: 16px;
+        fill: $secondary-color;
+
+        @include breakpoint(900) {
+          top: 3px;
+        }
+      }
+
+      span,
+      small {
+        display: none;
+
+        @include breakpoint(900) {
+          display: block;
+        }
+      }
+
+      strong {
+        display: block;
+        font-size: rem-calc(12);
+      }
+
+      span {
+        font-size: 1rem;
+        font-weight: $global-weight-bold;
+      }
+
+      small {
+        color: $dark-gray;
+        font-size: rem-calc(12);
+      }
+
+      strong {
+        @include breakpoint(900) {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+.team-member {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1 0 auto;
+}

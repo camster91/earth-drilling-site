@@ -1,0 +1,40 @@
+.drills-quick-links {
+  @extend %hex-links;
+
+  ul {
+    .drills-quick-links__item--active {
+      a {
+        background-color: $primary-color;
+        font-weight: $global-weight-bold;
+        margin-bottom: 3em;
+        @include breakpoint(medium){
+          margin-bottom: revert;
+        }
+        .hny-svg {
+          color: $white;
+        }
+      }
+    }
+
+  }
+
+  a {
+    box-shadow: $box-shadow;
+
+    &:focus,
+    &:hover {
+      box-shadow: $box-shadow-large;
+
+      .hny-svg {
+        color: $white;
+      }
+    }
+
+    > div {
+      &:before,
+      &:after {
+        box-shadow: $box-shadow;
+      }
+    }
+  }
+}

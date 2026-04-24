@@ -1,0 +1,29 @@
+.team-members {
+  button {
+    margin-top: 0.5rem;
+    margin-bottom: 3rem;
+    font-size: rem-calc(12);
+    font-weight: $global-weight-normal;
+    text-transform: none;
+  }
+
+  .heading {
+    span {
+      span {
+        font-weight: $global-weight-normal;
+      }
+    }
+  }
+
+  .cell {
+    margin-bottom: 2rem;
+  }
+
+  .wysiwyg {
+    margin-top: 1rem;
+
+    p {
+      font-size: rem-calc(14);
+    }
+  }
+}

@@ -1,0 +1,229 @@
+$hex-width-small: 128px;
+$hex-width: 220px;
+$hex-width-xxlarge: 225px;
+$hex-ratio: 1.75;
+$border-width: 5px;
+
+%hex-links {
+  width: 100%;
+  max-width: 280px;
+  margin: 0 auto;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+
+  @include breakpoint(medium) {
+    max-width: 560px;
+  }
+
+  @include breakpoint(large) {
+    max-width: none;
+  }
+
+  ul {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    margin: 0;
+    list-style: none;
+
+    &[class*="offset"] {
+      @include breakpoint(large) {
+        margin-left: #{-$hex-width / 2 - ($border-width)};
+      }
+
+      @include breakpoint(xxlarge) {
+        margin-left: #{-$hex-width-xxlarge / 2 - ($border-width)};
+      }
+
+      li {
+        &:nth-child(8n),
+        &:nth-child(8n-1),
+        &:nth-child(8n-2),
+        &:nth-child(8n-3) {
+          @include breakpoint(large) {
+            position: relative;
+            left: #{$hex-width / 2 + ($border-width * 2)};
+          }
+
+          @include breakpoint(xxlarge) {
+            left: #{$hex-width-xxlarge / 2 + ($border-width * 2)};
+          }
+        }
+      }
+    }
+
+    a {
+      display: block;
+      position: relative;
+      width: $hex-width-small;
+      height: $hex-width-small / $hex-ratio;
+      margin: $hex-width-small / 3.46420323325635 / 1.625 ($hex-width-small / 3.46420323325635) / 8;
+      border-right: solid 5px $white;
+      border-left: solid 5px $white;
+      background-position: center;
+      background-size: auto $hex-width-small / 0.91360920841948;
+      background-color: $secondary-color;
+      color: $white;
+      font-size: rem-calc(14);
+      line-height: 1.2;
+      text-shadow: 0 0 5px rgba($black, 0.8);
+
+      @include breakpoint(large) {
+        width: $hex-width;
+        height: $hex-width / $hex-ratio;
+        margin: $hex-width / 3.46420323325635 / 1.625 ($hex-width / 3.46420323325635) / 8;
+        background-size: auto $hex-width / 0.91360920841948;
+        font-size: 1rem;
+      }
+
+      @include breakpoint(xxlarge) {
+        width: $hex-width-xxlarge;
+        height: $hex-width-xxlarge / $hex-ratio;
+        margin: $hex-width-xxlarge / 3.46420323325635 / 1.625 ($hex-width-xxlarge / 3.46420323325635) / 8;
+        background-size: auto $hex-width-xxlarge / 0.91360920841948;
+      }
+
+
+      &:focus,
+      &:hover {
+        transform: scale(1.05);
+        background-color: $primary-color;
+      }
+
+      > span {
+        display: flex;
+        z-index: 10;
+        position: absolute;
+        top: 0;
+        left: 0;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        padding: 0 1.5rem;
+        text-align: center;
+
+        span {
+          display: block;
+        }
+
+        .hny-svg {
+          flex: 1 0 auto;
+          width: 40px;
+          height: 40px;
+          margin-bottom: 0.25rem;
+          color: $primary-light;
+          transition: $trans;
+
+          @include breakpoint(large) {
+            width: 84px;
+            height: 84px;
+          }
+        }
+      }
+
+      > div {
+        z-index: 1;
+        position: absolute;
+        left: ($hex-width-small / 1.41422712487626) / 5.87255652595198;
+        width: $hex-width-small / 1.41422712487626;
+        height: $hex-width-small / 1.41422712487626;
+        overflow: hidden;
+        transform: scaleY(0.5774) rotate(-45deg);
+        background: inherit;
+
+        @include breakpoint(large) {
+          left: ($hex-width / 1.41422712487626) / 5.87255652595198;
+          width: $hex-width / 1.41422712487626;
+          height: $hex-width / 1.41422712487626;
+        }
+
+        @include breakpoint(xxlarge) {
+          left: ($hex-width-xxlarge / 1.41422712487626) / 5.87255652595198;
+          width: $hex-width-xxlarge / 1.41422712487626;
+          height: $hex-width-xxlarge / 1.41422712487626;
+        }
+
+        &:after {
+          position: absolute;
+          width: $hex-width-small - $border-width * 2;
+          height: ($hex-width-small - $border-width * 2) / $hex-ratio;
+          transform: rotate(45deg) scaleY(1.7321) translateY(-#{$hex-width-small / 3.65443509475836});
+          transform-origin: 0 0;
+          background: inherit;
+          content: "";
+
+          @include breakpoint(large) {
+            width: $hex-width - $border-width * 2;
+            height: ($hex-width - $border-width * 2) / $hex-ratio;
+            transform: rotate(45deg) scaleY(1.7321) translateY(-#{$hex-width / 3.65443509475836});
+          }
+
+          @include breakpoint(xxlarge) {
+            width: $hex-width-xxlarge - $border-width * 2;
+            height: ($hex-width-xxlarge - $border-width * 2) / $hex-ratio;
+            transform: rotate(45deg) scaleY(1.7321) translateY(-#{$hex-width-xxlarge / 3.65443509475836});
+          }
+        }
+
+        &:first-of-type {
+          top: -$hex-width-small / 2.82842758282579;
+          border-top: solid $border-width * 1.41422 $white;
+          border-right: solid $border-width * 1.41422 $white;
+
+          @include breakpoint(large) {
+            top: -$hex-width / 2.82842758282579;
+          }
+
+          @include breakpoint(xxlarge) {
+            top: -$hex-width-xxlarge / 2.82842758282579;
+          }
+
+          &:after {
+            background-position: center top;
+          }
+        }
+
+        &:last-of-type {
+          bottom: -$hex-width-small / 2.82842758282579;
+          border-bottom: solid $border-width * 1.41422 $white;
+          border-left: solid $border-width * 1.41422 $white;
+
+          @include breakpoint(large) {
+            bottom: -$hex-width / 2.82842758282579;
+          }
+
+          @include breakpoint(xxlarge) {
+            bottom: -$hex-width-xxlarge / 2.82842758282579;
+          }
+
+          &:after {
+            background-position: center bottom;
+          }
+        }
+      }
+
+      &:after {
+        z-index: 2;
+        position: absolute;
+        top: 2.8868px;
+        left: 0;
+        width: $hex-width-small - $border-width * 2;
+        height: ($hex-width-small - $border-width * 2) / $hex-ratio;
+        background: inherit;
+        content: "";
+
+        @include breakpoint(large) {
+          width: $hex-width - $border-width * 2;
+          height: ($hex-width - $border-width * 2) / $hex-ratio;
+        }
+
+        @include breakpoint(xxlarge) {
+          width: $hex-width-xxlarge - $border-width * 2;
+          height: ($hex-width-xxlarge - $border-width * 2) / $hex-ratio;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,62 @@
+button.navburger {
+  padding: 0;
+  background: $secondary-color;
+
+  .is-open-right & {
+    background: $primary-color;
+  }
+}
+
+.navburger {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @include breakpoint(tablet) {
+    display: none;
+  }
+
+  &__icon {
+    display: block;
+    position: relative;
+    width: 24px;
+    height: 2px;
+    transition: .4s;
+    background: $white;
+
+    .is-open-right & {
+      position: relative;
+      transform: rotate(180deg);
+      background: transparent;
+    }
+
+    &:after,
+    &:before {
+      display: block;
+      position: absolute;
+      width: 24px;
+      height: 2px;
+      transition: inherit;
+      background: $white;
+      content: '';
+    }
+
+    &:after {
+      top: 7px;
+
+      .is-open-right & {
+        top: 0;
+        transform: rotate(135deg);
+      }
+    }
+
+    &:before {
+      top: -7px;
+
+      .is-open-right & {
+        top: 0;
+        transform: rotate(45deg);
+      }
+    }
+  }
+}

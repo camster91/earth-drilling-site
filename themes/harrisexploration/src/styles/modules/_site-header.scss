@@ -1,0 +1,78 @@
+.site-header {
+  position: relative;
+
+  &__masthead {
+    position: relative;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+    background: $white;
+    z-index: 600;
+
+    @include breakpoint(tablet) {
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+  }
+
+  .no-hero & {
+    border-bottom: 1px solid $light-gray;
+  }
+
+  &__utility {
+    position: relative;
+    background: $primary-color;
+    z-index: 700;
+  }
+
+  &__search {
+    position: absolute;
+    width: 100%;
+    padding: 1rem 0;
+    transform: translateY(-100%);
+    transition: all .6s cubic-bezier(.645, .045, .355, 1);
+    background: rgba($white, 0.95);
+    z-index: 500;
+
+    .search & {
+      position: static;
+      transform: none;
+      background: $light-gray;
+    }
+
+    .site-search {
+      transform: translateY(-100%);
+      transition: all .8s cubic-bezier(.645, .045, .355, 1);
+      opacity: 0;
+
+      .search & {
+        transform: none;
+        opacity: 1;
+      }
+
+      &__submit {
+        @extend %u-screen-reader;
+      }
+
+      &__input {
+        input {
+          height: auto;
+          padding: 0 0 0 32px;
+          border: 0;
+          background: none;
+          font-size: rem-calc(20);
+          box-shadow: none;
+        }
+      }
+    }
+
+    .is-search-open & {
+      transform: none;
+      box-shadow: $box-shadow;
+
+      .site-search {
+        transform: none;
+        opacity: 1;
+      }
+    }
+  }
+}

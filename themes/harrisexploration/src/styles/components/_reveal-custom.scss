@@ -1,0 +1,126 @@
+.reveal {
+  &--rig-info {
+    padding-top: 0;
+    font-size: rem-calc(14);
+  }
+
+  &--search {
+    &[aria-hidden='false'] {
+      display: flex !important;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+  &__close {
+    display: flex;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50px;
+    height: 50px;
+    z-index: 2;
+    align-items: center;
+    justify-content: center;
+
+    .hny-svg {
+      width: 32px;
+      height: 32px;
+      fill: $primary-color;
+
+      &--back {
+        @include breakpoint(large) {
+          display: none;
+        }
+      }
+    }
+  }
+
+  &--photo {
+    width: 100%;
+    background: $reveal-overlay-background;
+    text-align: center;
+    box-shadow: none;
+
+    .is-loading & {
+      background: none;
+    }
+
+    @include breakpoint(large) {
+      padding-top: $reveal-padding;
+    }
+
+    .reveal__content {
+      position: relative;
+      height: 100%;
+      color: $white;
+
+      > div {
+        display: flex;
+        height: 100%;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+
+        .is-loading & {
+          visibility: hidden;
+        }
+
+        .count {
+          margin-top: 0.5rem;
+          font-size: rem-calc(14);
+        }
+      }
+    }
+
+    img {
+      max-height: 85%;
+      box-shadow: $box-shadow-large;
+    }
+  }
+
+  &__background {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    margin-top: auto;
+    background-image: url('../images/footer-bg.svg');
+    background-repeat: repeat-x;
+    background-position: center top;
+    background-size: $global-width * 1.625 auto;
+    z-index: -1;
+    flex: 1 0 auto;
+  }
+
+  &__arrow {
+    position: absolute;
+    top: 50%;
+    width: 3rem;
+    height: 3rem;
+    margin-top: -1.5rem;
+    transition: background 200ms;
+    color: $primary-color;
+    cursor: pointer;
+    z-index: 3;
+
+    .hny-svg {
+      width: 1.5rem;
+      height: 1.5rem;
+
+      @include breakpoint(large) {
+        width: 2.5rem;
+        height: 2.5rem;
+      }
+    }
+
+    &--prev {
+      left: -1.5rem;
+
+    }
+
+    &--next {
+      right: -1.5rem;
+    }
+  }
+}

@@ -1,0 +1,28 @@
+.rig-modal {
+  &__heading {
+    display: flex;
+    margin-bottom: 3rem;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+
+    .heading {
+      display: flex;
+      margin-bottom: 0;
+      padding-right: 1.5rem;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+
+    figure {
+      max-width: calc(50% + 1.5rem);
+      margin-right: -3rem;
+      padding-bottom: percentage(1/3);
+      box-shadow: $box-shadow-large;
+      flex: 0 0 calc(50% + 3rem);
+    }
+  }
+
+  .spec-table {
+    font-size: rem-calc(14);
+  }
+}

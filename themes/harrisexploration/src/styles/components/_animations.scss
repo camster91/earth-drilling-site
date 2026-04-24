@@ -1,0 +1,29 @@
+@keyframes enter-right {
+  from {
+    transform: translate3d(10%, 0, 0);
+    visibility: visible;
+    opacity: 0;
+  }
+
+  to {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
+}
+
+.animated {
+  animation-duration: 1s;
+  animation-fill-mode: both;
+}
+
+.enter-right {
+  animation-name: enter-right;
+}
+
+[data-animation] {
+  visibility: hidden;
+
+  &.is-animated {
+    visibility: visible;
+  }
+}

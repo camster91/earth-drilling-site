@@ -1,0 +1,133 @@
+.masthead {
+  display: flex;
+  position: relative;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: space-between;
+
+  &__logo {
+    @include breakpoint(large) {
+      flex: 0 1 auto;
+    }
+
+    a {
+      display: block;
+      width: 180px;
+
+      @include breakpoint(450) {
+        width: 216px;
+      }
+
+      @include breakpoint(large) {
+        width: 280px;
+      }
+
+      @include breakpoint(xlarge) {
+        width: 300px;
+      }
+    }
+  }
+
+  &__nav {
+    @include breakpoint(tablet) {
+      margin: 0 auto;
+    }
+  }
+
+  &__utility {
+    display: flex;
+    position: relative;
+    flex-flow: row nowrap;
+    align-items: center;
+    flex: 1 0 auto;
+    justify-content: flex-end;
+
+    @include breakpoint(tablet) {
+      justify-content: space-between;
+    }
+  }
+
+  button {
+    position: relative;
+    width: 32px;
+    height: 32px;
+    transition: $trans;
+    background: $primary-color;
+    color: $white;
+
+    @include breakpoint(450) {
+      width: 50px;
+      height: 50px;
+    }
+  }
+
+  &__search {
+    margin-left: 0.5rem;
+
+    @include breakpoint(tablet) {
+      margin-left: 0;
+    }
+
+    button {
+      &:after {
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        width: 0;
+        height: 0;
+        margin-left: -10px;
+        transform: translateY(-100%);
+        transition: $trans;
+        border-width: 10px 10px 0 10px;
+        border-style: solid;
+        border-color: $primary-color transparent transparent transparent;
+        content: '';
+        z-index: -1;
+      }
+
+      .is-search-open & {
+        background: $secondary-color;
+
+        &:after {
+          transform: none;
+          border-top-color: $secondary-color;
+        }
+      }
+
+      .hny-svg {
+        width: 18px;
+        height: 18px;
+        transition: $trans;
+
+        @include breakpoint(450) {
+          width: 26px;
+          height: 26px;
+        }
+
+        &--cancel {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          margin-top: -9px;
+          margin-left: -9px;
+          opacity: 0;
+
+          @include breakpoint(450) {
+            margin-top: -13px;
+            margin-left: -13px;
+          }
+
+          .is-search-open & {
+            opacity: 1;
+          }
+        }
+
+        &--search {
+          .is-search-open & {
+            opacity: 0;
+          }
+        }
+      }
+    }
+  }
+}

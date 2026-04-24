@@ -1,0 +1,29 @@
+.spec-table {
+  margin-left: 0;
+  list-style: none;
+
+  li {
+    display: flex;
+    margin-right: -1rem;
+    margin-left: -1rem;
+    flex-flow: row nowrap;
+
+    + li {
+      margin-top: 0.5rem;
+    }
+  }
+
+  &__label {
+    max-width: 40%;
+    padding-right: 1rem;
+    padding-left: 1rem;
+    flex: 0 0 40%;
+  }
+
+  &__value {
+    max-width: 30%;
+    padding-right: 1rem;
+    padding-left: 1rem;
+    flex: 0 0 30%;
+  }
+}

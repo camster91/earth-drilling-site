@@ -1,0 +1,25 @@
+.tabs {
+  border: 0;
+  background: none;
+}
+
+.tabs-title {
+  a {
+    outline: none;
+
+    &:focus,
+    &:hover {
+      color: $primary-color;
+    }
+  }
+
+  &:not(.is-active) {
+    > a {
+      background: $secondary-color;
+    }
+  }
+}
+
+.tabs-panel {
+  position: relative;
+}

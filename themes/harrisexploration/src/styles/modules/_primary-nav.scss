@@ -1,0 +1,141 @@
+.primary-nav {
+  display: none;
+
+  @include breakpoint(tablet) {
+    display: block;
+  }
+
+  ul {
+    margin: 0;
+    list-style: none;
+  }
+
+  &__items {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-end;
+
+    &:focus,
+    &:hover {
+      .primary-nav__item {
+        > a {
+          color: $medium-gray;
+        }
+
+        &:not(.primary-nav__item--active) {
+          > a {
+            &:after {
+              border-bottom-color: $medium-gray;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &__item {
+    position: relative;
+    > a {
+      display: block;
+      position: relative;
+      padding: 2.5rem 1rem;
+      outline: none;
+      color: $secondary-color;
+      font-weight: $global-weight-normal;
+      line-height: 1.2;
+      text-align: center;
+      text-transform: uppercase;
+      font-size: rem-calc(18);
+
+      @include breakpoint(large) {
+        font-size: rem-calc(22);
+      }
+
+      .hny-svg {
+        transition: inherit;
+        fill: $secondary-color;
+      }
+
+      span {
+        display: block;
+
+        &:last-child {
+          font-weight: $global-weight-bold;
+        }
+      }
+
+      &:focus,
+      &:hover {
+        .hny & {
+          color: $primary-color;
+        }
+      }
+    }
+
+    &--active {
+      > a {
+        color: $primary-color;
+
+        &:after {
+          position: absolute;
+          bottom: 0;
+          left: 50%;
+          width: 0;
+          height: 0;
+          margin-left: -40px;
+          transition: inherit;
+          border-width: 0 40px 20px 40px;
+          border-style: solid;
+          border-color: transparent transparent $primary-color transparent;
+          content: '';
+        }
+      }
+    }
+  }
+
+  &__submenu {
+    position: absolute;
+    top: calc(100% - 20px);
+    width: 100%;
+    transform: scale(.95);
+    border-radius: 4px;
+    background: $white;
+    box-shadow: $button-box-shadow;
+    opacity: 0;
+    z-index: 150;
+    pointer-events: none;
+    transform-origin: 50% 100%;
+    will-change: transform, opacity;
+    transition-property: transform, opacity;
+    transition-duration: .25s;
+    perspective: 2000px;
+
+    &.js-dropdown-active {
+      transform: none;
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    &-item {
+      &.primary-nav__submenu-item--active {
+        > a {
+          color: $primary-color;
+          font-weight: $global-weight-bold;
+        }
+      }
+
+      > a {
+        display: block;
+        padding: 0.5rem 1rem;
+        color: $secondary-color;
+        font-size: rem-calc(14);
+        font-weight: $global-weight-normal;
+        text-align: center;
+
+        &:hover {
+          color: $primary-color;
+        }
+      }
+    }
+  }
+}

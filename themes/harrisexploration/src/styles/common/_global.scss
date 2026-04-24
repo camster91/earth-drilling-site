@@ -1,0 +1,75 @@
+html {
+  display: flex;
+
+  @include breakpoint(large) {
+    font-size: 106.25%;
+  }
+
+  @include breakpoint(xxlarge) {
+    font-size: 125%;
+  }
+}
+
+body {
+  display: flex;
+  width: 100%;
+  min-height: 100vh;
+  flex-direction: column;
+
+  &.admin-bar {
+    min-height: calc(100vh - 46px);
+
+    @include breakpoint(tablet) {
+      min-height: calc(100vh - 32px);
+    }
+  }
+}
+
+.off-canvas-wrapper,
+.off-canvas-content,
+.root {
+  display: flex;
+  max-width: 100%;
+  overflow: hidden;
+  flex-direction: column;
+  flex: 1 0 auto;
+}
+
+a {
+  transition: $trans;
+  font-weight: $global-weight-bold;
+}
+
+address {
+  font-style: normal;
+}
+
+[data-context='dark'] {
+  color: $white;
+
+  button:not(.button) {
+    color: currentColor;
+  }
+
+  a {
+    &:not(.button) {
+      color: $white;
+
+      &:hover {
+        color: $white;
+      }
+    }
+  }
+
+  &.l-footer {
+    a {
+      &:not(.button) {
+        color: $white;
+      }
+    }
+  }
+}
+
+.ui-datepicker {
+  position: absolute;
+}

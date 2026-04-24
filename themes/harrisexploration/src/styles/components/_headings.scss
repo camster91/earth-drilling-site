@@ -1,0 +1,190 @@
+h1,
+h2,
+h5,
+h6 {
+  font-weight: $global-weight-bold;
+}
+
+h5 {
+  text-transform: uppercase;
+}
+
+h4 {
+  text-transform: uppercase;
+
+  a {
+    font-weight: $global-weight-normal;
+  }
+}
+
+h6 {
+  font-weight: $global-weight-normal;
+}
+
+h3 {
+  &.heading--drill {
+    max-width: none;
+  }
+}
+
+.heading {
+  letter-spacing: -0.015em;
+  text-transform: uppercase;
+
+  [data-context='dark'] & {
+    color: $white;
+  }
+
+  &--alt {
+    small {
+      display: block;
+      line-height: inherit;
+      font-weight: $global-weight-normal;
+    }
+  }
+
+  > span {
+    strong {
+      display: block;
+    }
+
+    > span {
+      font-weight: $global-weight-normal;
+
+      &:first-child {
+        font-weight: $global-weight-bold;
+      }
+    }
+  }
+
+  &--drill {
+    position: relative;
+    margin-bottom: 1.5rem;
+    padding-top: 3rem;
+
+    &:before {
+      transform: scaleY(0);
+      transition: 0.7s all ease-in-out;
+      transform-origin: top center;
+    }
+
+    &:after {
+      transform: scaleX(0);
+      transition: 0.7s all ease-in-out;
+      transition-delay: 0.7s;
+    }
+
+    &.in-view {
+      &:before,
+      &:after {
+        transform: none;
+      }
+    }
+
+    .site-footer & {
+      max-width: 355px;
+
+      @include breakpoint(large) {
+        max-width: 420px;
+      }
+    }
+
+    &:before,
+    &:after {
+      position: absolute;
+      bottom: 0;
+      margin-bottom: 5px;
+      background: currentColor;
+      content: '';
+
+      [data-context='light'] & {
+        background: $primary-color;
+      }
+    }
+
+    &:before {
+      left: -22px;
+      width: 9px;
+      height: calc(100% - 5px);
+    }
+
+    &:after {
+      left: -27px;
+      width: 20px;
+      height: 2px;
+    }
+
+    span {
+      display: block;
+      font-weight: $global-weight-normal;
+
+      > span {
+        margin-bottom: 1rem;
+        font-size: 60%;
+
+        &:first-child {
+          font-weight: $global-weight-normal;
+        }
+      }
+    }
+  }
+
+  &--stacked {
+    display: block;
+    position: relative;
+    color: $primary-light;
+    text-align: left;
+
+    &:not(.heading--alt) {
+      > span {
+        &:first-child {
+          position: absolute;
+          left: 0;
+          transform: translateY(-100%);
+        }
+
+        &:last-child:not(:first-child) {
+          padding-left: 80px;
+          font-weight: $global-weight-normal;
+
+          @include breakpoint(medium only) {
+            .home & {
+              padding-left: 0;
+            }
+          }
+
+          @include breakpoint(large) {
+            padding-left: 140px;
+          }
+
+          .grid-container--narrow & {
+            padding-left: 65px;
+          }
+        }
+
+        .home & {
+          @include breakpoint(medium only) {
+            position: static;
+            transform: none;
+          }
+        }
+      }
+    }
+
+    > span {
+      display: block;
+    }
+
+    &.heading--alt {
+      > span {
+        &:last-child:not(:first-child) {
+          font-weight: $global-weight-normal;
+        }
+      }
+    }
+  }
+}
+// fix large heading spacing on homepage
+.home .page-content > div:last-child h2.heading.heading--stacked {
+  margin-top: 2em;
+}

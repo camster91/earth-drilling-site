@@ -1,0 +1,26 @@
+.inline-icon {
+  display: inline-flex;
+  align-items: center;
+
+  span {
+    + .hny-svg {
+      margin-left: 0.25rem;
+    }
+  }
+
+  .hny-svg {
+    width: 1em;
+    height: 1em;
+
+    + span {
+      margin-left: 0.25rem;
+    }
+  }
+
+  &--large {
+    .hny-svg {
+      width: 1.5em;
+      height: 1.5em;
+    }
+  }
+}

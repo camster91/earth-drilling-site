@@ -1,0 +1,54 @@
+.year-links {
+  &__items {
+    list-style: none;
+    margin: 0;
+    display: none;
+
+    @include breakpoint(medium) {
+      display: flex;
+    }
+  }
+
+  li {
+    transform: skew(-25deg);
+  }
+
+  &__btn-link {
+    margin-right: 4px;
+    height: 100%;
+    padding: 0.25em 1em;
+    color: $white !important;
+    background: $secondary-color;
+    display: block;
+
+    span {
+      display: block;
+      transform: skew(25deg);
+    }
+
+    &:focus,
+    &:hover {
+      color: $white;
+      background: $primary-color;
+    }
+
+    &--active {
+      background-color: $primary-color;
+
+      &:focus,
+      &:hover {
+        background: $primary-color;
+      }
+    }
+  }
+
+  &__dropdown {
+    @include breakpoint(medium) {
+      display: none;
+    }
+
+    select {
+      margin-bottom: 0;
+    }
+  }
+}

@@ -1,0 +1,28 @@
+.colophon {
+  font-size: rem-calc(12);
+  text-align: center;
+
+  @include breakpoint(tablet) {
+    display: flex;
+    text-align: left;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  @include breakpoint(xxlarge) {
+    font-size: rem-calc(10);
+  }
+
+  p {
+    margin-bottom: 0;
+  }
+
+  a {
+    color: $white;
+
+    &:hover {
+      color: $anchor-color;
+    }
+  }
+}

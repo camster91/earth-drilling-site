@@ -1,0 +1,128 @@
+button,
+.button {
+  outline: none;
+  font-family: $body-font-family;
+  font-weight: $global-weight-bold;
+  text-transform: uppercase;
+  cursor: pointer;
+  > span{
+    line-height: 1.2;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
+  &.inline-icon, &.gform_button{
+    > span{
+      min-height: 52px;
+      display: flex;
+      flex-flow: column;
+      justify-content: center;
+    }
+  }
+}
+
+.spec-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.button {
+  position: relative;
+  transition: none;
+
+  &:not(.button--download) {
+    padding-top: 0;
+    padding-right: 1em;
+    padding-bottom: 0;
+    line-height: 52px;
+
+    &.small {
+      line-height: 38px;
+
+      &:after,
+      &:before {
+        margin-top: -20px;
+        border-top: 20px solid transparent;
+        border-bottom: 20px solid transparent;
+      }
+      > span{
+        min-height: 38px;
+      }
+    }
+
+    &.large {
+      line-height: 64px;
+
+      &:after,
+      &:before {
+        margin-top: -33px;
+        border-top: 33px solid transparent;
+        border-bottom: 33px solid transparent;
+      }
+      > span{
+        min-height: 64px;
+      }
+    }
+
+    &:after,
+    &:before {
+      position: absolute;
+      top: 50%;
+      right: -1em;
+      margin-top: -27px;
+      border-top: 27px solid transparent;
+      border-bottom: 27px solid transparent;
+      border-left: 1em solid;
+      content: "";
+    }
+
+    &:after {
+      border-left-color: $button-background;
+      z-index: 2;
+    }
+
+    &:focus,
+    &:hover {
+      &:after {
+        border-left-color: $button-background-hover;
+      }
+    }
+  }
+
+  &--download {
+    padding: 0.5em;
+    border: 1px solid $dark-primary;
+
+    span {
+      display: block;
+      font-size: rem-calc(13);
+
+    }
+
+    .hny-svg--pdf-round {
+      fill: $dark-primary;
+    }
+  }
+
+  &[disabled] {
+    &,
+    &:focus,
+    &:hover {
+      background: $medium-gray;
+    }
+  }
+}
+@include breakpoint(medium down){
+  .spec-button a {
+    display: flex;
+    flex-direction: column-reverse;
+    svg.hny-svg{
+      width: 3em;
+      height: 3em;
+      margin-left: 0;
+      margin-bottom: 1rem;
+    }
+  }
+}

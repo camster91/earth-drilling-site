@@ -1,0 +1,45 @@
+.grid-container {
+  &--full {
+    max-width: none;
+    padding: 0;
+  }
+
+  &--narrow {
+    max-width: $global-width / 1.35;
+  }
+
+  &--wide {
+    max-width: $global-width * 1.5;
+  }
+
+  .grid-padding-x {
+    margin-right: -1.5rem;
+    margin-left: -1.5rem;
+
+    &--large {
+      margin-right: -3rem;
+      margin-left: -3rem;
+
+      > .cell {
+        padding-right: 3rem;
+        padding-left: 3rem;
+      }
+    }
+
+    &--small {
+      margin-right: -0.75rem;
+      margin-left: -0.75rem;
+
+      > .cell {
+        padding-right: 0.75rem;
+        padding-left: 0.75rem;
+      }
+    }
+  }
+}
+
+.cell {
+  &--flex {
+    display: flex;
+  }
+}

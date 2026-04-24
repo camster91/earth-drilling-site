@@ -1,0 +1,74 @@
+@media print {
+  * {
+    &:before,
+    &:after {
+      background: rgba(255, 255, 255, 0) !important;
+      color: $black !important; // Black prints faster
+      text-shadow: none !important;
+      box-shadow: none !important;
+    }
+  }
+
+  a {
+    &[href] {
+      &:after {
+        content: none;
+      }
+    }
+
+    // Don't show links for fragment identifiers, or :tel links
+    &[href^='tel'],
+    [href^='#'] {
+      &:after {
+        content: '';
+      }
+    }
+
+    &:visited {
+      text-decoration: underline;
+    }
+  }
+
+  abbr {
+    &[title] {
+      &:after {
+        content: ' (' attr(title) ')';
+      }
+    }
+  }
+
+  pre,
+  blockquote {
+    border: 1px solid $black;
+    page-break-inside: avoid;
+  }
+
+  thead {
+    display: table-header-group;
+  }
+
+  tr,
+  img {
+    page-break-inside: avoid;
+  }
+
+  img {
+    max-width: 100% !important; // Avoid images bleeding off the edges of the page
+  }
+
+  .hny-svg {
+    fill: $black !important;
+  }
+
+  p,
+  h2,
+  h3 {
+    orphans: 3;
+    widows: 3;
+  }
+
+  h2,
+  h3 {
+    page-break-after: avoid;
+  }
+}

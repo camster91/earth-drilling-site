@@ -1,0 +1,20 @@
+.legal-nav {
+  &__items {
+    display: flex;
+    margin: 0;
+    list-style: none;
+    align-items: center;
+    justify-content: center;
+
+    @include breakpoint(tablet) {
+      margin-bottom: 0;
+      justify-content: flex-start;
+    }
+  }
+
+  &__item {
+    + .legal-nav__item {
+      margin-left: 0.75rem;
+    }
+  }
+}

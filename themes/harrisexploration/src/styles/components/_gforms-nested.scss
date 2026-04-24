@@ -1,0 +1,75 @@
+.hny {
+  .gpnf-nested-entries {
+    margin-bottom: 0;
+  }
+
+  .gpnf-nested-entries-container {
+    overflow: visible;
+  }
+
+  .gpnf-nested-entries th {
+    border: 0;
+    background: $secondary-color;
+    color: $white;
+  }
+
+  .gpnf-nested-entries td,
+  .gpnf-nested-entries th {
+    padding: $table-padding;
+    font-size: rem-calc(14);
+  }
+
+  @media only screen and (max-width: 760px), (max-device-width: 1024px) and (min-device-width: 768px), (any-hover: none) {
+    table.gpnf-nested-entries {
+      border: 0;
+    }
+
+    .gpnf-nested-entries tr {
+      margin-bottom: 0;
+      border: 1px solid #ccc;
+    }
+  }
+
+  .gpnf-row-actions {
+    @media only screen and (max-width: 760px), (min-device-width: 768px) and (max-device-width: 1024px), (any-hover: none) {
+      background: $white !important;
+    }
+
+    button {
+      display: inline-block;
+      padding: 0.25em 0.5em;
+      border: 1px solid;
+      border-radius: $button-radius;
+      font-size: rem-calc(12);
+      font-weight: $global-weight-bold;
+      text-decoration: none;
+    }
+
+    ul {
+      margin: 0;
+      text-align: right;
+
+      @media only screen and (max-width: 760px), (min-device-width: 768px) and (max-device-width: 1024px), (any-hover: none) {
+        text-align: left;
+      }
+
+      li {
+        &.edit {
+          > button {
+            border-color: $body-font-color;
+            background: $white;
+            color: $body-font-color;
+          }
+        }
+
+        &.delete {
+          > button {
+            border-color: $alert-color;
+            background: $alert-color;
+            color: $white;
+          }
+        }
+      }
+    }
+  }
+}

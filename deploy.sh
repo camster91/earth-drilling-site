@@ -32,12 +32,10 @@ deploy() {
     local src="$1"
     local dest="$2"
     echo -e "${GREEN}→${NC} Deploying: $(basename $src)"
-    rsync -az --no-group -e "ssh -i $SSH_KEY -o StrictHostKeyChecking=no" \
+    rsync -az --delete --no-group -e "ssh -i $SSH_KEY -o StrictHostKeyChecking=no" \
         --exclude='build/' \
         --exclude='node_modules/' \
         --exclude='dist/' \
-        --exclude='includes/' \
-        --exclude='partials/' \
         "$src/" "${USER}@${HOST}:${dest}/"
 }
 
@@ -54,12 +52,12 @@ if [ "$TARGET" = "us" ] || [ "$TARGET" = "themes" ] || [ "$TARGET" = "all" ]; th
 fi
 
 if [ "$TARGET" = "ca" ] || [ "$TARGET" = "mu-plugins" ] || [ "$TARGET" = "all" ]; then
-    rsync -az -e "ssh -i $SSH_KEY -o StrictHostKeyChecking=no" \
+    rsync -az --delete -e "ssh -i $SSH_KEY -o StrictHostKeyChecking=no" \
         "mu-plugins/ca/" "${USER}@${HOST}:${ROOT}/ca/public/wp-content/mu-plugins/"
 fi
 
 if [ "$TARGET" = "us" ] || [ "$TARGET" = "mu-plugins" ] || [ "$TARGET" = "all" ]; then
-    rsync -az -e "ssh -i $SSH_KEY -o StrictHostKeyChecking=no" \
+    rsync -az --delete -e "ssh -i $SSH_KEY -o StrictHostKeyChecking=no" \
         "mu-plugins/us/" "${USER}@${HOST}:${ROOT}/us/public/wp-content/mu-plugins/"
 fi
 

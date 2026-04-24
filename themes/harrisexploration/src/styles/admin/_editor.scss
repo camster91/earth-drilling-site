@@ -1,0 +1,30 @@
+body {
+  &.mce-content-body {
+    max-width: $grid-row-width;
+    height: inherit !important;
+    min-height: inherit !important;
+    max-height: inherit !important;
+    padding: 1rem !important;
+    background: $white !important;
+    color: inherit !important;
+    font-family: $body-font-family;
+
+    p {
+      &.lead {
+        font-size: $lead-font-size;
+      }
+
+      &.small {
+        font-size: $small-font-size;
+      }
+    }
+
+    a {
+      color: $anchor-color;
+
+      &:hover {
+        color: $anchor-color-hover;
+      }
+    }
+  }
+}

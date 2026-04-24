@@ -1,0 +1,83 @@
+.select-rig {
+  .gpnf-nested-entries {
+    + .gpnf-add-entry {
+      display: none;
+    }
+  }
+
+  &__items {
+    margin-bottom: 1.5rem;
+
+    @include breakpoint(large) {
+      display: flex;
+      margin: 0 -1.5rem 1.5rem;
+      flex-flow: row wrap;
+    }
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    @include breakpoint(large) {
+      max-width: 50%;
+      padding: 0 1.5rem;
+      flex: 0 0 50%;
+    }
+
+    .rig-info {
+      display: flex;
+      max-width: 100%;
+      align-items: center;
+      flex: 0 0 100%;
+
+      @include breakpoint(large) {
+        margin-bottom: 0.5rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 1px solid rgba($black, 0.1);
+      }
+
+      &__name {
+        display: flex;
+        padding-right: 0.5rem;
+        align-items: center;
+        flex: 1 1;
+
+        > div {
+          > span {
+            display: block;
+            color: $medium-gray;
+            font-size: rem-calc(12);
+          }
+        }
+
+        img {
+          width: 60px;
+          margin-right: 0.75rem;
+        }
+      }
+
+      &__action {
+        margin-left: auto;
+        flex: 0 1 auto;
+      }
+    }
+
+    .button {
+      margin-top: 0;
+    }
+
+    + .select-rig__item {
+      margin-top: 0.25rem;
+      padding-top: 0.25rem;
+      border-top: 1px solid rgba($black, 0.1);
+
+      @include breakpoint(large) {
+        margin-top: 0;
+        padding-top: 0;
+        border-top: 0;
+      }
+    }
+  }
+}

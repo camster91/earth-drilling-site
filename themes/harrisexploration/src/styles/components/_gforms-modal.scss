@@ -1,0 +1,73 @@
+.hny {
+  .gpnf-dialog {
+    &.ui-widget-overlay {
+      background: $reveal-overlay-background;
+    }
+
+    &.ui-dialog {
+      border-radius: 0;
+      background: $white;
+      box-shadow: $box-shadow-large;
+
+      .ui-dialog-content {
+        border-top: 0;
+
+        p {
+          font-size: rem-calc(14);
+        }
+      }
+    }
+
+    .ui-dialog-titlebar {
+      display: flex;
+      position: relative;
+      justify-content: center;
+      flex-direction: column;
+
+      .ui-button {
+        top: 50%;
+        right: 1em;
+        width: 50px;
+        height: 50px;
+        margin-top: -25px;
+        overflow: hidden;
+      }
+    }
+
+    .ui-icon-closethick {
+      display: block;
+      margin: 0 !important;
+      background-image: url('../images/cancel.svg') !important;
+      background-repeat: no-repeat;
+      background-position: center !important;
+      background-size: 25px 25px !important;
+
+      &:after {
+        content: none;
+      }
+    }
+
+    .ui-dialog-title {
+      padding-right: 65px;
+      font-weight: $global-weight-bold;
+      line-height: $global-lineheight;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+
+    .ui-dialog .ui-dialog-titlebar-close, .ui-icon-closethick {
+      width: 50px !important;
+      height: 50px !important;
+    }
+
+    .ui-dialog .ui-dialog-titlebar-close {
+      border: none !important;
+      background: none !important;
+    }
+
+    .ui-dialog .ui-dialog-titlebar-close, .ui-dialog .ui-dialog-titlebar-close:hover {
+      padding: 0 !important;
+    }
+  }
+}

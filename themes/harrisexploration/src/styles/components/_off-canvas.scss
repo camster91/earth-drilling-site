@@ -1,0 +1,22 @@
+.off-canvas {
+  &__menu {
+    padding: 4rem 1.5rem 1.5rem;
+  }
+
+  &__close {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 3rem;
+    height: 3rem;
+    color: $white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .hny-svg {
+      width: 26px;
+      height: 26px;
+    }
+  }
+}

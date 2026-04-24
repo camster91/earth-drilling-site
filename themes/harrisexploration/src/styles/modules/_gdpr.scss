@@ -1,0 +1,93 @@
+.gdpr {
+  &__grid {
+    @include breakpoint(large) {
+      display: flex;
+      margin-right: -0.5rem;
+      margin-left: -0.5rem;
+      flex-flow: row wrap;
+    }
+  }
+
+  &__box {
+    + .gdpr__box {
+      margin-top: 1rem;
+    }
+
+    @media only screen and (min-width: 40.0625em) {
+      display: flex;
+      padding: 0 0.5rem;
+      flex: 1 1;
+
+      + .gdpr__box {
+        margin-top: 0;
+      }
+    }
+
+    > a {
+      display: flex;
+      position: relative;
+      padding: 2rem;
+      border: 1px solid $primary-color;
+      color: $body-font-color;
+      font-size: rem-calc(14);
+      font-weight: $global-weight-normal;
+      text-align: center;
+      flex-flow: column wrap;
+      flex: 1 1;
+
+      svg {
+        margin: 0 auto 1rem;
+        fill: $primary-color;
+      }
+
+      &:focus,
+      &:hover {
+        color: $primary-color;
+      }
+    }
+  }
+}
+
+#cookie-law-info-bar {
+  box-shadow: $box-shadow-large;
+}
+
+.gdpr-framework-privacy-tools {
+  .gdpr-notice {
+    + h3 {
+      display: none;
+
+      + form {
+        display: none;
+      }
+    }
+  }
+}
+
+.gdpr-framework-privacy-tools .button,
+#gdpr-submit {
+  @include button;
+  @extend .button;
+}
+
+.hny {
+  .cookielawinfo-row-cat-table {
+    width: 100%;
+    margin-left: 0;
+    border: 0;
+
+    tbody {
+      border: 0;
+    }
+
+    thead {
+      background: $primary-color;
+      color: $white;
+    }
+
+    th,
+    td {
+      border-color: $white;
+    }
+  }
+}

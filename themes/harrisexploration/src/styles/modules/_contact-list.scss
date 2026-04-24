@@ -1,0 +1,14 @@
+.contact-list {
+  margin: 0;
+  font-size: rem-calc(13);
+  line-height: 1.3;
+  list-style: none;
+
+  .inline-icon {
+    .hny-svg--phone {
+      width: 1.5em;
+      height: 1.5em;
+      margin-left: -0.25em;
+    }
+  }
+}

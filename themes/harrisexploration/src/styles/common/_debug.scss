@@ -1,0 +1,46 @@
+th {
+  border: 2px solid red;
+}
+
+div:empty, span:empty,
+li:empty, p:empty,
+td:empty, th:empty {
+  padding: 0.5em;
+  background: yellow;
+}
+
+font, center {
+  outline: 5px solid red;
+}
+
+*[class=""], *[id=""] {
+  outline: 5px dotted red;
+}
+
+img:not([alt]) {
+  border: 5px solid red;
+}
+
+table:not([summary]) {
+  outline: 5px solid red;
+}
+
+table[summary=""] {
+  outline: 3px dotted red;
+}
+
+th[scope="col"], th[scope="row"] {
+  border: none;
+}
+
+a[title=""] {
+  outline: 3px dotted red;
+}
+
+a[href="#"] {
+  background: lime;
+}
+
+a[href=""] {
+  background: fuchsia;
+}

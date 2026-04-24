@@ -1,0 +1,25 @@
+.industry-quick-links {
+  @extend %hex-links;
+  ul{
+    a {
+      box-shadow: $box-shadow;
+      &:focus,
+      &:hover {
+        box-shadow: $box-shadow-large;
+
+        .hny-svg {
+          color: $white;
+        }
+      }
+
+      > div {
+        &:before,
+        &:after {
+          box-shadow: $box-shadow;
+        }
+      }
+    }
+
+  }
+
+}

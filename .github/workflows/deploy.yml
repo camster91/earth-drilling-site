@@ -28,7 +28,7 @@ jobs:
 
       - name: Deploy plugins
         run: |
-          rsync -az \
+          rsync -az --delete \
             -e "ssh -o StrictHostKeyChecking=yes" \
             plugins/country-redirect/ \
             cameron@72.167.35.242:/var/www/earthdrilling.com/public/wp-content/plugins/earthdrilling-country-redirect/
@@ -36,25 +36,25 @@ jobs:
 
       - name: Deploy CA theme
         run: |
-          rsync -az \
+          rsync -az --delete \
             -e "ssh -o StrictHostKeyChecking=yes" \
-            --exclude='build/' --exclude='node_modules/' --exclude='dist/' --exclude='includes/' --exclude='partials/' \
+            --exclude='build/' --exclude='node_modules/' --exclude='dist/' \
             themes/earthdrilling/ \
             cameron@72.167.35.242:/var/www/earthdrilling.com/ca/public/wp-content/themes/earthdrilling/
           echo "✓ CA theme deployed"
 
       - name: Deploy US theme
         run: |
-          rsync -az \
+          rsync -az --delete \
             -e "ssh -o StrictHostKeyChecking=yes" \
-            --exclude='build/' --exclude='node_modules/' --exclude='dist/' --exclude='includes/' --exclude='partials/' \
+            --exclude='build/' --exclude='node_modules/' --exclude='dist/' \
             themes/harrisexploration/ \
             cameron@72.167.35.242:/var/www/earthdrilling.com/us/public/wp-content/themes/harrisexploration/
           echo "✓ US theme deployed"
 
       - name: Deploy mu-plugins (CA)
         run: |
-          rsync -az \
+          rsync -az --delete \
             -e "ssh -o StrictHostKeyChecking=yes" \
             mu-plugins/ca/ \
             cameron@72.167.35.242:/var/www/earthdrilling.com/ca/public/wp-content/mu-plugins/
@@ -62,7 +62,7 @@ jobs:
 
       - name: Deploy mu-plugins (US)
         run: |
-          rsync -az \
+          rsync -az --delete \
             -e "ssh -o StrictHostKeyChecking=yes" \
             mu-plugins/us/ \
             cameron@72.167.35.242:/var/www/earthdrilling.com/us/public/wp-content/mu-plugins/
