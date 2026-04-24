@@ -102,6 +102,7 @@ class Earth_Drilling_Country_Toggle {
 .heading--drill:after,.heading--drill:before{background:#fff!important}
 [data-context=dark] .heading{color:#fff!important}
 [data-context=dark] .heading span{color:#fff!important}
+[data-context=light] .heading,[data-context=light] .heading span,[data-context=light] .heading--drill,[data-context=light] .heading--drill span,[data-context=light] .heading--stacked,[data-context=light] .heading--stacked span{color:#1e2534!important}
 .site-footer__columns address{color:#3f4e59!important;line-height:1.6!important}
 .site-footer__columns address a{color:#3b4a67!important}
 .site-footer__columns .heading span{color:#1e2534!important}
