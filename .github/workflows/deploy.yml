@@ -28,7 +28,7 @@ jobs:
 
       - name: Deploy plugins
         run: |
-          rsync -az --delete \
+          rsync -az \
             -e "ssh -o StrictHostKeyChecking=yes" \
             plugins/country-redirect/ \
             cameron@72.167.35.242:/var/www/earthdrilling.com/public/wp-content/plugins/earthdrilling-country-redirect/
@@ -36,18 +36,18 @@ jobs:
 
       - name: Deploy CA theme
         run: |
-          rsync -az --delete \
+          rsync -az \
             -e "ssh -o StrictHostKeyChecking=yes" \
-            --exclude='build/' --exclude='node_modules/' --exclude='package-lock.json' --exclude='yarn.lock' \
+            --exclude='build/' --exclude='node_modules/' --exclude='dist/' --exclude='includes/' --exclude='partials/' \
             themes/earthdrilling/ \
             cameron@72.167.35.242:/var/www/earthdrilling.com/ca/public/wp-content/themes/earthdrilling/
           echo "✓ CA theme deployed"
 
       - name: Deploy US theme
         run: |
-          rsync -az --delete \
+          rsync -az \
             -e "ssh -o StrictHostKeyChecking=yes" \
-            --exclude='build/' --exclude='node_modules/' --exclude='package-lock.json' --exclude='yarn.lock' \
+            --exclude='build/' --exclude='node_modules/' --exclude='dist/' --exclude='includes/' --exclude='partials/' \
             themes/harrisexploration/ \
             cameron@72.167.35.242:/var/www/earthdrilling.com/us/public/wp-content/themes/harrisexploration/
           echo "✓ US theme deployed"
