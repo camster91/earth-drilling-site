@@ -49,7 +49,7 @@ class Earth_Drilling_Country_Toggle {
 
 /* Mobile Polish */
 @media (max-width: 768px) {
-    .masthead__logo a { width: 140px !important; }
+    .masthead__logo a { width: 180px !important; }
     .site-header__masthead { padding: 12px 0 !important; }
     .header-utility__item.edct-toggle-item { display: none !important; }
     .site-footer__contact { min-height: auto !important; padding-top: 3rem !important; }
@@ -59,6 +59,7 @@ class Earth_Drilling_Country_Toggle {
 .heading--drill { padding-top: 1.5rem !important; }
 .heading--stacked { margin-top: -2rem !important; }
 [data-context=light] .heading, [data-context=light] .heading span { color: #2d3e4f !important; }
+.content-block__container { color: #2d3e4f !important; }
 
 /* Overlap Rules */
 .home.has-hero .content-block:first-child.content-block--has-decoration { margin-top: -8.75rem !important; }

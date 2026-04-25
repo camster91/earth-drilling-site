@@ -19,11 +19,11 @@
       }
 
       @include breakpoint(large) {
-        width: 280px;
+        width: 250px;
       }
 
       @include breakpoint(xlarge) {
-        width: 300px;
+        width: 250px;
       }
     }
   }
