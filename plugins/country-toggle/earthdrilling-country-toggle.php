@@ -40,7 +40,7 @@ class Earth_Drilling_Country_Toggle {
 	private function inline_css(): string {
 		return <<<'CSS'
 .edct-switch { position: relative; display: inline-flex; align-items: center; border-radius: 20px; background: rgba(0,0,0,.25); padding: 3px; gap: 0; box-shadow: inset 0 1px 3px rgba(0,0,0,0.3); }
-.edct-switch__slider { position: absolute; top: 3px; left: 3px; width: calc(50% - 3px); height: calc(100% - 6px); border-radius: 17px; background: rgba(59,74,103,0.6); transition: transform 0.3s cubic-bezier(0.68,-0.55,0.265,1.55); z-index: 0; }
+.edct-switch__slider { position: absolute; top: 3px; left: 3px; width: calc(50% - 3px); height: calc(100% - 6px); border-radius: 17px; background: rgba(170, 151, 103, 0.6); transition: transform 0.3s cubic-bezier(0.68,-0.55,0.265,1.55); z-index: 0; }
 .edct-switch--us .edct-switch__slider { transform: translateX(100%) translateX(1px); }
 .edct-switch__side { position: relative; z-index: 1; display: inline-flex; align-items: center; gap: 5px; padding: 5px 12px; border-radius: 17px; text-decoration: none; color: rgba(255,255,255,0.45); font-size: 10px; font-weight: 700; }
 .edct-switch__side--active { color: #fff; }
@@ -58,7 +58,7 @@ class Earth_Drilling_Country_Toggle {
 /* Headline & Overlap Polish */
 .heading--drill { padding-top: 1.5rem !important; }
 .heading--stacked { margin-top: -2rem !important; }
-[data-context=light] .heading, [data-context=light] .heading span { color: #1e2534 !important; }
+[data-context=light] .heading, [data-context=light] .heading span { color: #2d3e4f !important; }
 
 /* Overlap Rules */
 .home.has-hero .content-block:first-child.content-block--has-decoration { margin-top: -8.75rem !important; }
