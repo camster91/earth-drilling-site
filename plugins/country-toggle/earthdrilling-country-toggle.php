@@ -55,6 +55,10 @@ class Earth_Drilling_Country_Toggle {
     .site-footer__contact { min-height: auto !important; padding-top: 3rem !important; }
 }
 
+@media (min-width: 1024px) {
+    .masthead__logo a { width: 250px !important; }
+}
+
 /* Headline & Overlap Polish */
 .heading--drill { padding-top: 1.5rem !important; }
 .heading--stacked { margin-top: -2rem !important; }
@@ -62,9 +66,17 @@ class Earth_Drilling_Country_Toggle {
 .content-block__container { color: #2d3e4f !important; }
 
 /* Overlap Rules */
-.home.has-hero .content-block:first-child.content-block--has-decoration { margin-top: -8.75rem !important; }
+.home.has-hero .hero__content-wrapper { padding-bottom: 8.75rem !important; }
+.home.has-hero .content-block:first-child { margin-top: -8.75rem !important; position: relative !important; z-index: 10 !important; }
+
 @media (min-width: 64em) {
-    .home.has-hero .content-block:first-child.content-block--has-decoration { margin-top: -18.875rem !important; }
+    .home.has-hero .hero__content-wrapper { padding-bottom: 18.875rem !important; }
+    .home.has-hero .content-block:first-child { margin-top: -18.875rem !important; }
+}
+
+@media (min-width: 103.125em) {
+    .home.has-hero .hero__content-wrapper { padding-bottom: 25.3125rem !important; }
+    .home.has-hero .content-block:first-child { margin-top: -25.3125rem !important; }
 }
 .site-footer__card { background: #fff !important; border-radius: 8px !important; padding: 2rem 2.5rem !important; box-shadow: 0 4px 20px rgba(0,0,0,0.12) !important; }
 CSS;
